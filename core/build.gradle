@@ -1,0 +1,68 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'kotlin-parcelize'
+    id 'dagger.hilt.android.plugin'
+}
+apply from: "../shared_dependencies.gradle"
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+        buildConfigField("String", "API_KEY", KEY_API)
+        buildConfigField("String","KEY_CRYPTO",KEY_CRYPTO)
+        buildConfigField("String","KEY_CERTIFICATE",KEY_CERTIFICATE)
+        buildConfigField("String","HOSTNAME",HOSTNAME)
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        viewBinding = true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+    //coroutine flow
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutine_flow_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutine_flow_version"
+
+
+    //room
+    implementation "androidx.room:room-ktx:$room_version"
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+
+
+    //retrofit2
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_version"
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.7'
+
+}

@@ -1,0 +1,4 @@
+rootProject.name = "GameInfoApp"
+include ':app'
+include ':core'
+include ':FavoriteFeature'
