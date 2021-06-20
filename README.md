@@ -1,7 +1,7 @@
 ## MySimpleGameInfoApp
 - Using Reactive Programming With Flow 1.4.3
 - Using Dependencys Injection With Dagger-hilt 2.3.7
-- Implement Modiularization And Dynamic Feature
+- Implement Modularization And Dynamic Feature
 - Using MVVM Architectur with Repository Pattern and implement Clean Architecture 
 
 ### Library
