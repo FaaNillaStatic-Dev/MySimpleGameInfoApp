@@ -9,10 +9,7 @@ apply from: "../shared_dependencies.gradle"
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
-    lintOptions {
-        abortOnError false
-        checkReleaseBuilds false
-    }
+
 
     defaultConfig {
         minSdkVersion 21
@@ -24,6 +21,11 @@ android {
         buildConfigField("String","KEY_CERTIFICATE",KEY_CERTIFICATE)
         buildConfigField("String","HOSTNAME",HOSTNAME)
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    lintOptions {
+        abortOnError false
     }
 
     buildTypes {
@@ -67,6 +69,5 @@ dependencies {
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
     implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_version"
-    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.7'
 
 }

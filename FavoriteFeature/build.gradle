@@ -8,13 +8,19 @@ plugins {
 
 apply from: '../shared_dependencies.gradle'
 
+
 android {
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
-    lintOptions {
-        abortOnError false
-        checkReleaseBuilds false
-    }
+
 
     defaultConfig {
         applicationId "com.suhaili.favoritefeature"
@@ -25,11 +31,13 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+    lintOptions {
+        abortOnError false
+    }
 
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
         debug {
 
@@ -44,9 +52,9 @@ android {
 
 
 dependencies {
-    implementation project(":app")
-    implementation project(":core")
     implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation project(":core")
+    implementation project(":app")
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.7'
+
 }
