@@ -1,4 +1,4 @@
-## MySimpleGameInfoApp
+## MySimpleGameInfoApp [![CircleCI](https://circleci.com/gh/FaaNillaStatic-Dev/MySimpleGameInfoApp/tree/master.svg?style=svg)](https://circleci.com/gh/FaaNillaStatic-Dev/MySimpleGameInfoApp/tree/master)
 - Using Reactive Programming With Flow 1.4.3
 - Using Dependencys Injection With Dagger-hilt 2.3.7
 - Implement Modularization And Dynamic Feature
